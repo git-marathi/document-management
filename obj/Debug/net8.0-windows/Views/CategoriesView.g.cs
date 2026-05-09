@@ -52,7 +52,7 @@ namespace SmartFileOrganizer.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SmartFileOrganizer;component/views/categoriesview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SmartFileOrganizer;V1.0.0.0;component/views/categoriesview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\CategoriesView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

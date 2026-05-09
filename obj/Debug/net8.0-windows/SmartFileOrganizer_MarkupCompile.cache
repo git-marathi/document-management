@@ -1,5 +1,5 @@
 ﻿SmartFileOrganizer
-
+1.0.0.0
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 C:\Git-Repos\document-management\App.xaml
 6-2123080270
 
-221476535762
+24-1643224418
 208-669535254
 Views\CategoriesView.xaml;Views\DashboardView.xaml;Views\LogsView.xaml;Views\MainWindow.xaml;Views\OrganizeFilesView.xaml;Views\SettingsView.xaml;
 
-False
+True
 
