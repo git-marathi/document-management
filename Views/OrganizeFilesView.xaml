@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SmartFileOrganizer.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="20">
@@ -15,11 +15,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Folder Selection" Grid.Row="0" Margin="0,0,0,10">
+        <GroupBox Header="Folder Selection" Grid.Row="0" Margin="0,0,0,10" Height="300">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -34,18 +35,64 @@
                 <TextBlock Text="Destination Folder:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,10,0"/>
                 <TextBox Text="{Binding DestinationFolder}" Grid.Row="1" Grid.Column="1" IsReadOnly="True" Margin="0,10,0,0"/>
                 <Button Content="Browse" Grid.Row="1" Grid.Column="2" Margin="10,10,0,0" Command="{Binding SelectDestinationFolderCommand}"/>
+
+                <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="{DynamicResource MaterialDesignDivider}" BorderThickness="1" CornerRadius="6" Margin="0,10,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBox Grid.Row="0" Margin="10,10,10,5" materialDesign:HintAssist.Hint="Search directories..." Text="{Binding DirectorySearchText, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <TreeView Grid.Row="1" ItemsSource="{Binding DirectoryItems}" Margin="10,0,10,10" SelectedItemChanged="TreeView_SelectedItemChanged" AllowDrop="True" Drop="TreeView_Drop">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding SubDirectories}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <materialDesign:PackIcon Kind="Folder" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding Name}"/>
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </Grid>
+                </Border>
             </Grid>
         </GroupBox>
 
-        <CheckBox Content="Include subfolders" IsChecked="{Binding IncludeSubfolders}" Grid.Row="1" Margin="0,0,0,10"/>
-
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,0,0,10">
-            <Button Content="Organize Files" Command="{Binding OrganizeFilesCommand}" IsEnabled="{Binding IsProcessing, Converter={StaticResource BooleanInverter}}"/>
-            <Button Content="Cancel" Command="{Binding CancelOrganizationCommand}" IsEnabled="{Binding IsProcessing}" Margin="10,0,0,0"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,20,0">
+                <TextBlock Text="Operation:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox ItemsSource="{Binding OperationTypes}" SelectedItem="{Binding SelectedOperation}" Width="180"/>
+            </StackPanel>
+            <CheckBox Content="Include subfolders" IsChecked="{Binding IncludeSubfolders}" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            <CheckBox Content="Overwrite existing" IsChecked="{Binding OverwriteExisting}" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            <CheckBox Content="Dry run" IsChecked="{Binding DryRun}" VerticalAlignment="Center"/>
         </StackPanel>
 
-        <ProgressBar Value="{Binding Progress}" Grid.Row="3" Height="20" Margin="0,0,0,10" Visibility="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,0,0,10">
+            <Button Content="Preview changes" Command="{Binding PreviewCommand}" IsEnabled="{Binding IsProcessing, Converter={StaticResource BooleanInverter}}" Margin="0,0,10,0"/>
+            <Button Content="Execute" Command="{Binding ExecuteCommand}" IsEnabled="{Binding IsProcessing, Converter={StaticResource BooleanInverter}}" Margin="0,0,10,0"/>
+            <Button Content="Cancel" Command="{Binding CancelOrganizationCommand}" IsEnabled="{Binding IsProcessing}"/>
+        </StackPanel>
 
-        <TextBlock Text="{Binding CurrentFile}" Grid.Row="4" Visibility="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+        <Border Grid.Row="3" BorderBrush="{DynamicResource MaterialDesignDivider}" BorderThickness="1" CornerRadius="6" Padding="10" Margin="0,0,0,10">
+            <StackPanel>
+                <TextBlock Text="Preview Plan" FontWeight="Bold" Margin="0,0,0,10"/>
+                <ListView ItemsSource="{Binding PreviewPlan}" Height="180">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding DisplayText}" TextWrapping="Wrap"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="4">
+            <ProgressBar Value="{Binding Progress}" Height="20" Margin="0,0,0,10" Visibility="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <TextBlock Text="{Binding StatusMessage}" FontWeight="SemiBold" Margin="0,0,0,5"/>
+            <TextBlock Text="{Binding CurrentFile}" Visibility="{Binding IsProcessing, Converter={StaticResource BooleanToVisibilityConverter}}" TextWrapping="Wrap"/>
+        </StackPanel>
     </Grid>
 </UserControl>

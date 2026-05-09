@@ -3,7 +3,8 @@ using SmartFileOrganizer.Models;
 using SmartFileOrganizer.Services;
 using SmartFileOrganizer.ViewModels;
 using System.Collections.ObjectModel;
-using System.Windows;
+using Application = System.Windows.Application;
+using StartupEventArgs = System.Windows.StartupEventArgs;
 
 namespace SmartFileOrganizer;
 
