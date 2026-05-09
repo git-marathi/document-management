@@ -1,0 +1,35 @@
+<Application x:Class="SmartFileOrganizer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:helpers="clr-namespace:SmartFileOrganizer.Helpers"
+             xmlns:viewModels="clr-namespace:SmartFileOrganizer.ViewModels"
+             xmlns:views="clr-namespace:SmartFileOrganizer.Views"
+             StartupUri="Views/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModels:DashboardViewModel}">
+                <views:DashboardView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:OrganizeFilesViewModel}">
+                <views:OrganizeFilesView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:CategoriesViewModel}">
+                <views:CategoriesView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:LogsViewModel}">
+                <views:LogsView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
+                <views:SettingsView />
+            </DataTemplate>
+            <helpers:ExtensionsToStringConverter x:Key="ExtensionsToStringConverter"/>
+            <helpers:BooleanInverter x:Key="BooleanInverter"/>
+            <helpers:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

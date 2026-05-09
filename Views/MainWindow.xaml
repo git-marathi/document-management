@@ -1,0 +1,30 @@
+<Window x:Class="SmartFileOrganizer.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartFileOrganizer.Views"
+        mc:Ignorable="d"
+        Title="Smart File Organizer" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <Border Grid.Column="0" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignDivider}" BorderThickness="0,0,1,0">
+            <StackPanel Margin="10">
+                <Button Content="Dashboard" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToDashboardCommand}" />
+                <Button Content="Organize Files" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToOrganizeFilesCommand}" />
+                <Button Content="Categories" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToCategoriesCommand}" />
+                <Button Content="Logs" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToLogsCommand}" />
+                <Button Content="Settings" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToSettingsCommand}" />
+            </StackPanel>
+        </Border>
+
+        <!-- Main Content -->
+        <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}" />
+    </Grid>
+</Window>

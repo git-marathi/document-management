@@ -1,0 +1,15 @@
+C:\Git-Repos\document-management\bin\Debug\net10.0-windows\document-management.exe
+C:\Git-Repos\document-management\bin\Debug\net10.0-windows\document-management.deps.json
+C:\Git-Repos\document-management\bin\Debug\net10.0-windows\document-management.runtimeconfig.json
+C:\Git-Repos\document-management\bin\Debug\net10.0-windows\document-management.dll
+C:\Git-Repos\document-management\bin\Debug\net10.0-windows\document-management.pdb
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\document-management.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\document-management.AssemblyInfoInputs.cache
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\document-management.AssemblyInfo.cs
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\document-management.csproj.CoreCompileInputs.cache
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\document-management.sourcelink.json
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\document-management.dll
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\refint\document-management.dll
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\document-management.pdb
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\document-management.genruntimeconfig.cache
+C:\Git-Repos\document-management\obj\Debug\net10.0-windows\ref\document-management.dll

@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "Images",
+    "Extensions": [".jpg", ".png", ".gif", ".bmp", ".webp"]
+  },
+  {
+    "Name": "Documents",
+    "Extensions": [".pdf", ".docx", ".txt", ".xlsx"]
+  },
+  {
+    "Name": "Videos",
+    "Extensions": [".mp4", ".mkv", ".avi"]
+  },
+  {
+    "Name": "Audio",
+    "Extensions": [".mp3", ".wav"]
+  },
+  {
+    "Name": "Archives",
+    "Extensions": [".zip", ".rar", ".7z"]
+  },
+  {
+    "Name": "Code",
+    "Extensions": [".cs", ".js", ".py", ".json"]
+  }
+]
