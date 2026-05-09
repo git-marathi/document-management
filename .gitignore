@@ -1,0 +1,65 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.tmp
+*.temp
+
+# Visual Studio
+.vs/
+*.swp
+*.swo
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# JetBrains Rider
+.idea/
+
+# SQLite databases (if any in repo)
+# *.db
+# *.sqlite
+# *.sqlite3
+
+# User-specific files
+Config/*.json
+Logs/*.log
+
+# Build outputs
+*.exe
+*.dll
+*.pdb
+*.exe.config
+*.dll.config
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+project.nuget.cache
+
+# Test results
+TestResults/
+*.trx
+
+# Coverage
+*.coverage
+*.coveragexml
+
+# Publish
+publish/
+*.publishproj

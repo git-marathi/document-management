@@ -18,6 +18,7 @@
             <StackPanel Margin="10">
                 <Button Content="Dashboard" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToDashboardCommand}" />
                 <Button Content="Organize Files" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToOrganizeFilesCommand}" />
+                <Button Content="Duplicate Files" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToDuplicateFilesCommand}" />
                 <Button Content="Categories" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToCategoriesCommand}" />
                 <Button Content="Logs" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToLogsCommand}" />
                 <Button Content="Settings" Margin="0,0,0,10" Style="{StaticResource MaterialDesignRaisedButton}" Command="{Binding NavigateToSettingsCommand}" />

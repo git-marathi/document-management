@@ -64,8 +64,8 @@ public partial class MainViewModel : BaseViewModel, IRecipient<NavigateMessage>
     }
 
     [RelayCommand]
-    private void NavigateToSettings()
+    private void NavigateToDuplicateFiles()
     {
-        CurrentViewModel = _serviceProvider.GetService(typeof(SettingsViewModel));
+        CurrentViewModel = _serviceProvider.GetService(typeof(DuplicateFilesViewModel));
     }
 }

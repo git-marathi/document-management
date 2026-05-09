@@ -48,6 +48,7 @@ public partial class App : Application
         services.AddTransient<MainViewModel>();
         services.AddTransient<DashboardViewModel>();
         services.AddTransient<OrganizeFilesViewModel>();
+        services.AddTransient<DuplicateFilesViewModel>();
         services.AddTransient<CategoriesViewModel>();
         services.AddTransient<LogsViewModel>();
         services.AddTransient<SettingsViewModel>();
